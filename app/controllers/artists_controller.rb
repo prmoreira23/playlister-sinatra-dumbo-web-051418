@@ -16,8 +16,8 @@ post "/artists" do
   redirect to "/artists"
 end
 
-get "/artists/:id" do
-  @artist = Artist.find_by(id: params[:id])
+get "/artists/:slug" do
+  @artist = Artist.find_by_slug(params[:slug])
   erb :"artists/show"
 end
 

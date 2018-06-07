@@ -22,6 +22,10 @@ class Song < ActiveRecord::Base
   # end
 
   def slug
-    self.title.downcase.gsub(/ /, "-")
+    self.title.downcase.gsub(/[^a-z ]/,' ').split.join(" ").gsub(/ /, "-")
+  end
+
+  def self.find_by_slug(slug)
+    Song.all.find {|s| s.slug == slug}
   end
 end

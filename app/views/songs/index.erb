@@ -10,7 +10,7 @@
   <%@songs.each do |song| %>
     <tr>
       <td><%=song.id%></td>
-      <td><a href="songs/<%=song.id%>"><%=song.title%></a></td>
+      <td><a href="songs/<%= song.slug %>"><%=song.title%></a></td>
       <td><a href="/artists/<%= song.artist.id %>"><%=song.artist.name%></a></td>
       <td><%=song.genre_names%></td>
       <td>
