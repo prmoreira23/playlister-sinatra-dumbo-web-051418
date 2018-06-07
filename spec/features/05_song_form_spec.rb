@@ -82,7 +82,7 @@ describe "Song Forms" do
 
   describe "/songs/:slug/edit" do
     before do
-      @song = Song.create(name: song_name)
+      @song = Song.create(title: song_name)
       artist = Artist.create(name: artist_name)
 
       @song.song_genres.create(genre: genre_1)

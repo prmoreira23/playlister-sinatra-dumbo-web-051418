@@ -1,0 +1,29 @@
+<form action="/songs<%=@action_url if @song%>" method="post">
+  <%if @song%>
+  <input id="hidden" type="hidden" value="patch" name="_method">
+  <%end%>
+  <label>Title:
+    <input type="text" name="song[title]" value="<%= @song.title if @song %>">
+  </label>
+  <br><br>
+  <label>Artist's Name:
+    <input type="text" name="song[artist]" value="<%= @song.artist.name if @song %>">
+  </label>
+  <br>
+  <br>
+  <% 3.times do |i| %>
+  <% genre = @song.genres[i] if @song
+    if @song && genre %>
+      <label>Genre <%= (i + 1) %>:
+        <input type="text" name="song[genres][]" value="<%= genre.name %>">
+      </label>
+    <% else %>
+    <label>Genre <%= (i + 1) %>:
+      <input type="text" name="song[genres][]">
+    </label>
+    <br>
+    <%end
+    end %>
+
+  <input type="submit" value="Submit">
+</form>

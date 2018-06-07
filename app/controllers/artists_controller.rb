@@ -4,11 +4,11 @@ class ArtistsController < ApplicationController
 
 get "/artists" do
   @artists = Artist.all
-  erb :"artist/index"
+  erb :"artists/index"
 end
 
 get "/artists/new" do
-  erb :"artist/new"
+  erb :"artists/new"
 end
 
 post "/artists" do
@@ -18,13 +18,13 @@ end
 
 get "/artists/:id" do
   @artist = Artist.find_by(id: params[:id])
-  erb :"artist/show"
+  erb :"artists/show"
 end
 
 get "/artists/:id/edit" do
   @artist = Artist.find_by(id: params[:id])
   @action_url = "/#{@artist.id}" if @artist
-  erb :"artist/new"
+  erb :"artists/new"
 end
 
 patch "/artists/:id" do
