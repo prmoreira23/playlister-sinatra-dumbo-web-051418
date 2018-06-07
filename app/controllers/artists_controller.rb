@@ -13,7 +13,8 @@ end
 
 post "/artists" do
   artist = Artist.create(params[:artist])
-  redirect to "/artists"
+  flash[:message] = "Successfully created artist."
+  redirect to "/artists/#{artist.slug}"
 end
 
 get "/artists/:slug" do
