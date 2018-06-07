@@ -1,0 +1,27 @@
+<h1>All artists</h1> <a href="/artists/new">Add New Artist</a>
+<table>
+  <tr>
+  <th>id</th>
+  <th>Name</th>
+  <th>No of Songs</th>
+  <th>Genres</th>
+  <th>Actions</th>
+  </tr>
+  <%@artists.each do |artist| %>
+    <tr>
+      <td><%=artist.id%></td>
+      <td><a href="artists/<%=artist.id%>"><%=artist.name%></a></td>
+      <td><%=artist.songs.count%></td>
+      <td><%=artist.genre_names%></td>
+      <td>
+        <a href="/artists/<%=artist.id%>">Show</a>|
+        <a href="/artists/<%=artist.id%>/edit">Edit</a>|
+        <form action="/artists/<%=artist.id%>" method="POST">
+          <input id="hidden" type="hidden" name="_method" value="delete">
+          <input type="submit" value="Delete">
+        </form>
+      </td>
+    </tr>
+  <%end%>
+
+</table>

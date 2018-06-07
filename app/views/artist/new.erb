@@ -1,0 +1,10 @@
+<form action="/artists<%=@action_url if @artist%>" method="post">
+  <%if @artist%>
+  <input id="hidden" type="hidden" value="patch" name="_method">
+  <%end%>
+  <label>Name:
+    <input type="text" name="artist[name]" value="<%=@artist.name if @artist%>">
+  </label>
+  <br>
+  <input type="submit" value="Submit">
+</form>
